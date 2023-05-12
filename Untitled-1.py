@@ -71,6 +71,17 @@ class Lecturer(Mentor):
     def __lt__(self, lector):
         return self.aver() < lector.aver()
 
+
+def average_rates(students, course_name):
+    result = 0
+    for thestudent in students:
+        #if course_name in thestudent.grades:
+            for k, n in thestudent.grades.items():
+                result = result + sum(n)/float(len(n))
+    return result
+
+
+
 best_student1 = Student('Ruoy', 'Eman', 'your_gender')
 best_student2 = Student('Frank', 'Ford', 'male')
 best_student1.courses_in_progress += ['Python']
@@ -106,3 +117,5 @@ print(cool_lecturer)
 
 print(cool_lecturer < cool_lecturer2)
 
+students = [best_student1, best_student2]
+print(average_rates(students, "Python"))
