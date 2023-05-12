@@ -75,11 +75,16 @@ class Lecturer(Mentor):
 def average_rates(students, course_name):
     result = 0
     for thestudent in students:
-        #if course_name in thestudent.grades:
             for k, n in thestudent.grades.items():
                 result = result + sum(n)/float(len(n))
     return result
 
+def average_rates_lec(lecturers, course_name):
+    result = 0
+    for thelecturer in lecturers:
+            for k, n in thelecturer.reviews.items():
+                result = result + sum(n)/float(len(n))
+    return result
 
 
 best_student1 = Student('Ruoy', 'Eman', 'your_gender')
@@ -118,4 +123,7 @@ print(cool_lecturer)
 print(cool_lecturer < cool_lecturer2)
 
 students = [best_student1, best_student2]
+lecturers = [cool_lecturer, cool_lecturer2]
+
 print(average_rates(students, "Python"))
+print(average_rates_lec(lecturers, "Python"))
